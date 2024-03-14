@@ -46,25 +46,7 @@ public class EVisitor implements Visitor {
         System.out.println("Block:");
 
         for (Node n : node.statements) {
-            if (n instanceof NodeVariableDeclaration) {
-                System.out.println("Variable Declaration:");
-                n.accept(this);
-            } else if (n instanceof NodeFunctionCall) {
-                System.out.println("Function Call:");
-                n.accept(this);
-            } else if (n instanceof NodeFunctionDeclaration) {
-                System.out.println("Function Declaration:");
-                n.accept(this);
-            } else if (n instanceof NodeAssignment) {
-                System.out.println("Assignment");
-                n.accept(this);
-            } else if (n instanceof NodeReturn) {
-                System.out.println("Return:");
-                n.accept(this);
-            } else {
-                System.out.println("Unknown statement:");
-                n.accept(this);
-            }
+            n.accept(this);
         }
     }
 
