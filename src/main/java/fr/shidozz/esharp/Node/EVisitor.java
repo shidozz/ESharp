@@ -37,8 +37,9 @@ public class EVisitor implements Visitor {
     
     @Override
     public void visit(NodeAssignment node) {
-        System.out.println("Identifier: " + node.identifier);
-        node.expression.print();
+        node.expression.accept(this);
+        System.out.println("STORE_VAR, " + node.identifier);
+        bytecodes.add(new StoreVarBC(node.identifier));
     }
     
     @Override
@@ -53,21 +54,50 @@ public class EVisitor implements Visitor {
     @Override
     public void visit(NodeExpression node) {
         node.leftOperand.accept(this);
-        NodeLiteral leftOP = (NodeLiteral) node.leftOperand;
+        
         if(node.rightOperand != null){
             node.rightOperand.accept(this);
-            NodeLiteral rightOP = (NodeLiteral) node.rightOperand;
+            
+            switch (node.operator) {
+                case MULTIPLY:
+                    System.out.println("MUL");
+                    bytecodes.add(new MulBC());
+                    break;
+                case DIVID:
+                    System.out.println("DIV");
+                    bytecodes.add(new DivBC());
+                    break;
+                case MINUS:
+                    System.out.println("SUB");
+                    bytecodes.add(new SubBC());
+                    break;
+                case PLUS:
+                    System.out.println("ADD");
+                    bytecodes.add(new AddBC());
+                    break;
+                default:
+                    throw new AssertionError();
+            }
         }
     }
     
     @Override
     public void visit(NodeLiteral node) {
-        // TODO: Implementation du visitor pour NodeLiteral
+        System.out.println("PUSH, " + node.getValue());
+        bytecodes.add(new PushBC((int)node.getValue()));
     }
     
     @Override
     public void visit(NodeVariableDeclaration node) {
-        if(node.expression != null)
+        System.out.println("DECLARE_VAR, " + node.identifier);
+        
+        bytecodes.add(new DeclarVarBC(node.identifier));
+        
+        if(node.expression != null){
             node.expression.accept(this);
+            
+            System.out.println("STORE_VAR, " + node.identifier);
+            bytecodes.add(new StoreVarBC(node.identifier));
+        }
     }
 }

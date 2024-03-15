@@ -2,9 +2,11 @@
 /home/shidozz/NetBeansProjects/Esharp/src/main/java/fr/shidozz/esharp/Node/NodeAssignment.java
 /home/shidozz/NetBeansProjects/Esharp/src/main/java/fr/shidozz/esharp/TokenType.java
 /home/shidozz/NetBeansProjects/Esharp/src/main/java/fr/shidozz/esharp/Node/EVisitor.java
+/home/shidozz/NetBeansProjects/Esharp/src/main/java/fr/shidozz/esharp/DeclarVarBC.java
 /home/shidozz/NetBeansProjects/Esharp/src/main/java/fr/shidozz/esharp/SubBC.java
 /home/shidozz/NetBeansProjects/Esharp/src/main/java/fr/shidozz/esharp/DivBC.java
 /home/shidozz/NetBeansProjects/Esharp/src/main/java/fr/shidozz/esharp/Token.java
+/home/shidozz/NetBeansProjects/Esharp/src/main/java/fr/shidozz/esharp/StoreVarBC.java
 /home/shidozz/NetBeansProjects/Esharp/src/main/java/fr/shidozz/esharp/Esharp.java
 /home/shidozz/NetBeansProjects/Esharp/src/main/java/fr/shidozz/esharp/Node/NodeReturn.java
 /home/shidozz/NetBeansProjects/Esharp/src/main/java/fr/shidozz/esharp/Node/NodeBlock.java
