@@ -9,6 +9,7 @@ fr/shidozz/esharp/Node/NodeFunctionDeclaration.class
 fr/shidozz/esharp/Node/Node.class
 fr/shidozz/esharp/PushBC.class
 fr/shidozz/esharp/ModuleHeader$emod_arch.class
+fr/shidozz/esharp/FuncCallBC.class
 fr/shidozz/esharp/DeclarVarBC.class
 fr/shidozz/esharp/Node/EVisitor.class
 fr/shidozz/esharp/Token.class
@@ -24,6 +25,7 @@ fr/shidozz/esharp/Node/NodeReturn.class
 fr/shidozz/esharp/AddBC.class
 fr/shidozz/esharp/Node/NodeAssignment.class
 fr/shidozz/esharp/BytecodeType.class
+fr/shidozz/esharp/ReturnBC.class
 fr/shidozz/esharp/Node/NodeVariableDeclaration.class
 fr/shidozz/esharp/Esharp.class
 fr/shidozz/esharp/Node/Visitor.class

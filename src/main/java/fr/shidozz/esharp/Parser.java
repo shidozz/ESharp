@@ -193,7 +193,7 @@ public class Parser {
     
     private Node parseTerm() {
         Node leftOperand = parseFactor();
-        while (peekNextToken().getType() == TokenType.MULTIPLY || peekNextToken().getType() == TokenType.DIVID) {
+        while (peekNextToken().getType() == TokenType.MULTIPLY || peekNextToken().getType() == TokenType.DIVID || peekNextToken().getType() == TokenType.PLUS  || peekNextToken().getType() == TokenType.MINUS) {
             TokenType operator = getNextToken().getType();
             Node rightOperand = parseFactor();
             leftOperand = new NodeExpression(leftOperand, operator, rightOperand);

@@ -28,11 +28,18 @@ public class EVisitor implements Visitor {
     @Override
     public void visit(NodeFunctionCall node) {
         // TODO: Implementation du visitor pour NodeFunctionCall
+        for (Node n : node.arguments) {
+            n.accept(this);
+        }
+        
+        System.out.println("CALL_FUNCTION");
+        bytecodes.add(new FuncCallBC(node.functionName));
     }
 
     @Override
     public void visit(NodeReturn node) {
-        // TODO: Implementation du visitor pour NodeReturn
+        System.out.println("RETURN");
+        bytecodes.add(new ReturnBC());
     }
     
     @Override

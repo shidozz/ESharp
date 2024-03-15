@@ -6,6 +6,7 @@
 /home/shidozz/NetBeansProjects/Esharp/src/main/java/fr/shidozz/esharp/SubBC.java
 /home/shidozz/NetBeansProjects/Esharp/src/main/java/fr/shidozz/esharp/DivBC.java
 /home/shidozz/NetBeansProjects/Esharp/src/main/java/fr/shidozz/esharp/Token.java
+/home/shidozz/NetBeansProjects/Esharp/src/main/java/fr/shidozz/esharp/FuncCallBC.java
 /home/shidozz/NetBeansProjects/Esharp/src/main/java/fr/shidozz/esharp/StoreVarBC.java
 /home/shidozz/NetBeansProjects/Esharp/src/main/java/fr/shidozz/esharp/Esharp.java
 /home/shidozz/NetBeansProjects/Esharp/src/main/java/fr/shidozz/esharp/Node/NodeReturn.java
@@ -17,6 +18,7 @@
 /home/shidozz/NetBeansProjects/Esharp/src/main/java/fr/shidozz/esharp/Compiler.java
 /home/shidozz/NetBeansProjects/Esharp/src/main/java/fr/shidozz/esharp/Node/Visitor.java
 /home/shidozz/NetBeansProjects/Esharp/src/main/java/fr/shidozz/esharp/PushBC.java
+/home/shidozz/NetBeansProjects/Esharp/src/main/java/fr/shidozz/esharp/ReturnBC.java
 /home/shidozz/NetBeansProjects/Esharp/src/main/java/fr/shidozz/esharp/Parser.java
 /home/shidozz/NetBeansProjects/Esharp/src/main/java/fr/shidozz/esharp/Lexer.java
 /home/shidozz/NetBeansProjects/Esharp/src/main/java/fr/shidozz/esharp/Node/NodeFunctionDeclaration.java
