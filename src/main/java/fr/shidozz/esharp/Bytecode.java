@@ -15,4 +15,5 @@ public abstract class Bytecode {
     }
     
     public abstract void write(DataOutputStream dos) throws IOException;
+    public abstract void print();
 }

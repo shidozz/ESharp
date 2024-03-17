@@ -7,9 +7,10 @@ import java.io.IOException;
  *
  * @author shidozz
  */
-public class DivBC extends Bytecode {    
-    public DivBC() {
-        super(BytecodeType.DIV);
+public class HaltBC extends Bytecode {
+    
+    public HaltBC() {
+        super(BytecodeType.HALT);
     }
 
     @Override
@@ -19,6 +20,6 @@ public class DivBC extends Bytecode {
     
     @Override
     public void print(){
-        System.out.println("DIV");
+        System.out.println("HALT");
     }
 }

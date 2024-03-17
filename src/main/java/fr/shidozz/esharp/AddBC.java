@@ -17,4 +17,9 @@ public class AddBC extends Bytecode {
     public void write(DataOutputStream dos) throws IOException {
         dos.writeByte(this.type.ordinal());
     }
+    
+    @Override
+    public void print(){
+        System.out.println("ADD");
+    }
 }

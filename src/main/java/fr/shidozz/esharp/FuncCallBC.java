@@ -12,16 +12,20 @@ import java.io.IOException;
  * @author shidozz
  */
 public class FuncCallBC extends Bytecode{
-    private String funcName;
-    public FuncCallBC(String funcName){
+    private int funcId;
+    public FuncCallBC(int funcId){
         super(BytecodeType.CALL_FUNCTION);
-        this.funcName = funcName;
+        this.funcId = funcId;
     }
     
     @Override
     public void write(DataOutputStream dos) throws IOException {
         dos.writeByte(this.type.ordinal());
-        dos.writeBytes(funcName);
+        Compiler.writeIntLittleEndian(dos, funcId);
     }
     
+    @Override
+    public void print(){
+        System.out.println("CALL_FUNCTION, " + funcId);
+    }
 }

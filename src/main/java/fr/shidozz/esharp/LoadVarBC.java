@@ -7,18 +7,21 @@ import java.io.IOException;
  *
  * @author shidozz
  */
-public class DivBC extends Bytecode {    
-    public DivBC() {
-        super(BytecodeType.DIV);
+public class LoadVarBC extends Bytecode { 
+    private int varId;
+    public LoadVarBC(int varId) {
+        super(BytecodeType.LOAD_VAR);
+        this.varId = varId;
     }
 
     @Override
     public void write(DataOutputStream dos) throws IOException {
         dos.writeByte(this.type.ordinal());
+        Compiler.writeIntLittleEndian(dos, varId);
     }
     
     @Override
     public void print(){
-        System.out.println("DIV");
+        System.out.println("LOAD_VAR, " + varId);
     }
 }

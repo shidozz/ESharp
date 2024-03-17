@@ -9,6 +9,8 @@ import java.util.*;
  */
 public class EVisitor implements Visitor {
     private List<Bytecode> bytecodes = new ArrayList<>();
+    private List<String> stackVar = new ArrayList<>();
+    private List<String> stackFunc = new ArrayList<>();
     
     public List<Bytecode> getByteCodes(){
         return this.bytecodes;
@@ -18,41 +20,48 @@ public class EVisitor implements Visitor {
     public void visit(NodeFunctionDeclaration node) {
         String functionName = node.functionName;
         List<String> parameters = node.parameters;
-
-        System.out.println("Function Declaration:");
-        System.out.println("Name: " + functionName);
-        System.out.println("Parameters: " + parameters);
+        
+        stackFunc.add(node.functionName);
+        int funcId = stackFunc.indexOf(node.functionName);
+        bytecodes.add(new FuncCallBC(funcId));
+        for(String param : parameters){
+            stackVar.add(param);
+            int paramId = stackVar.indexOf(param);
+            bytecodes.add(new DeclarVarBC(paramId));
+        }
+        bytecodes.add(new ParamBC());
+    
         node.block.accept(this);
     }
 
     @Override
     public void visit(NodeFunctionCall node) {
-        // TODO: Implementation du visitor pour NodeFunctionCall
         for (Node n : node.arguments) {
             n.accept(this);
         }
         
-        System.out.println("CALL_FUNCTION");
-        bytecodes.add(new FuncCallBC(node.functionName));
+        int funcId = stackFunc.indexOf(node.functionName);
+        bytecodes.add(new FuncCallBC(funcId));
     }
 
     @Override
     public void visit(NodeReturn node) {
-        System.out.println("RETURN");
         bytecodes.add(new ReturnBC());
     }
     
     @Override
     public void visit(NodeAssignment node) {
         node.expression.accept(this);
-        System.out.println("STORE_VAR, " + node.identifier);
-        bytecodes.add(new StoreVarBC(node.identifier));
+        int varId = stackVar.indexOf(node.identifier);
+        if (varId == -1) {
+            System.err.println("Erreur : Variable '" + node.identifier + "' non déclarée");
+            return;
+        }
+        bytecodes.add(new StoreVarBC(varId));
     }
     
     @Override
     public void visit(NodeBlock node) {
-        System.out.println("Block:");
-
         for (Node n : node.statements) {
             n.accept(this);
         }
@@ -67,19 +76,15 @@ public class EVisitor implements Visitor {
             
             switch (node.operator) {
                 case MULTIPLY:
-                    System.out.println("MUL");
                     bytecodes.add(new MulBC());
                     break;
                 case DIVID:
-                    System.out.println("DIV");
                     bytecodes.add(new DivBC());
                     break;
                 case MINUS:
-                    System.out.println("SUB");
                     bytecodes.add(new SubBC());
                     break;
                 case PLUS:
-                    System.out.println("ADD");
                     bytecodes.add(new AddBC());
                     break;
                 default:
@@ -90,21 +95,36 @@ public class EVisitor implements Visitor {
     
     @Override
     public void visit(NodeLiteral node) {
-        System.out.println("PUSH, " + node.getValue());
-        bytecodes.add(new PushBC((int)node.getValue()));
+        if (node.getLitType() == LiteralType.IDENTIFIER) {
+            String varName = (String) node.getValue();
+            int varId = stackVar.indexOf(varName);
+            if (varId == -1) {
+                System.err.println("Erreur : Variable '" + varName + "' non déclarée");
+                return;
+            }
+            bytecodes.add(new LoadVarBC(varId));
+        } else if (node.getLitType() == LiteralType.NUMBER) {
+            bytecodes.add(new PushBC((int) node.getValue()));
+        }
     }
     
     @Override
-    public void visit(NodeVariableDeclaration node) {
-        System.out.println("DECLARE_VAR, " + node.identifier);
+    public void visit(NodeVariableDeclaration node) {     
+        if(stackVar.contains(node.identifier)){
+            System.err.println("'" + node.identifier + "' existe déjà");
+            return;
+        }
         
-        bytecodes.add(new DeclarVarBC(node.identifier));
+        stackVar.add(node.identifier);
+        
+        int varId = stackVar.indexOf(node.identifier);
+        
+        bytecodes.add(new DeclarVarBC(varId));
         
         if(node.expression != null){
             node.expression.accept(this);
             
-            System.out.println("STORE_VAR, " + node.identifier);
-            bytecodes.add(new StoreVarBC(node.identifier));
+            bytecodes.add(new StoreVarBC(varId));
         }
     }
 }

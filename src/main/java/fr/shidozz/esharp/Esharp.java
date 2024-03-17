@@ -29,15 +29,22 @@ public class Esharp {
         EVisitor visitor = new EVisitor();
         
         Header header = new Header(new byte[]{'E', 'M', 'O', 'D'}, (short) 1, (byte) 0, (byte) 0, 1024, 512);
+        
+        for(Node node : nodes){
+            node.accept(visitor);
+        }
+        
         List<Bytecode> bc = visitor.getByteCodes();
+        bc.add(new HaltBC());
         try{
             compiler = new Compiler(args[2]);
             compiler.compile(header, bc);
+            
+            for(Bytecode b : bc){
+                b.print();
+            }
         } catch(IOException e){
             e.printStackTrace();
-        }
-        for(Node node : nodes){
-            node.accept(visitor);
         }
     }
 }

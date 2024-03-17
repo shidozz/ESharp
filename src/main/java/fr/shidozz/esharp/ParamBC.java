@@ -11,18 +11,20 @@ import java.io.IOException;
  *
  * @author shidozz
  */
-public class ReturnBC extends Bytecode {
-    public ReturnBC(){
-        super(BytecodeType.RETURN);
+public class ParamBC extends Bytecode{
+    
+    public ParamBC(){
+        super(BytecodeType.SEPARE_PARAM);
     }
 
     @Override
     public void write(DataOutputStream dos) throws IOException {
         dos.writeByte(this.type.ordinal());
     }
-    
+
     @Override
-    public void print(){
-        System.out.println("RETURN");
+    public void print() {
+        System.out.println("SEPARE_PARAM");
     }
+    
 }

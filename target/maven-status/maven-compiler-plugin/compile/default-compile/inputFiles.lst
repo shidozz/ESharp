@@ -5,11 +5,14 @@
 /home/shidozz/NetBeansProjects/Esharp/src/main/java/fr/shidozz/esharp/DeclarVarBC.java
 /home/shidozz/NetBeansProjects/Esharp/src/main/java/fr/shidozz/esharp/SubBC.java
 /home/shidozz/NetBeansProjects/Esharp/src/main/java/fr/shidozz/esharp/DivBC.java
+/home/shidozz/NetBeansProjects/Esharp/src/main/java/fr/shidozz/esharp/ParamBC.java
 /home/shidozz/NetBeansProjects/Esharp/src/main/java/fr/shidozz/esharp/Token.java
 /home/shidozz/NetBeansProjects/Esharp/src/main/java/fr/shidozz/esharp/FuncCallBC.java
 /home/shidozz/NetBeansProjects/Esharp/src/main/java/fr/shidozz/esharp/StoreVarBC.java
+/home/shidozz/NetBeansProjects/Esharp/src/main/java/fr/shidozz/esharp/LoadVarBC.java
 /home/shidozz/NetBeansProjects/Esharp/src/main/java/fr/shidozz/esharp/Esharp.java
 /home/shidozz/NetBeansProjects/Esharp/src/main/java/fr/shidozz/esharp/Node/NodeReturn.java
+/home/shidozz/NetBeansProjects/Esharp/src/main/java/fr/shidozz/esharp/HaltBC.java
 /home/shidozz/NetBeansProjects/Esharp/src/main/java/fr/shidozz/esharp/Node/NodeBlock.java
 /home/shidozz/NetBeansProjects/Esharp/src/main/java/fr/shidozz/esharp/Node/NodeExpression.java
 /home/shidozz/NetBeansProjects/Esharp/src/main/java/fr/shidozz/esharp/Bytecode.java
@@ -25,6 +28,7 @@
 /home/shidozz/NetBeansProjects/Esharp/src/main/java/fr/shidozz/esharp/Node/Node.java
 /home/shidozz/NetBeansProjects/Esharp/src/main/java/fr/shidozz/esharp/ModuleHeader.java
 /home/shidozz/NetBeansProjects/Esharp/src/main/java/fr/shidozz/esharp/AddBC.java
+/home/shidozz/NetBeansProjects/Esharp/src/main/java/fr/shidozz/esharp/DeclarFuncBC.java
 /home/shidozz/NetBeansProjects/Esharp/src/main/java/fr/shidozz/esharp/Node/NodeFunctionCall.java
 /home/shidozz/NetBeansProjects/Esharp/src/main/java/fr/shidozz/esharp/MulBC.java
 /home/shidozz/NetBeansProjects/Esharp/src/main/java/fr/shidozz/esharp/Node/NodeLiteral.java

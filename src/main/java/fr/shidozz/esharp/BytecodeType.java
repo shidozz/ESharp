@@ -20,5 +20,6 @@ public enum BytecodeType {
     DECLARE_FUNCTION,
     CALL_FUNCTION,
     RETURN,
+    SEPARE_PARAM,
     HALT;
 }

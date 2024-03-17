@@ -22,7 +22,11 @@ public class PushBC extends Bytecode {
     @Override
     public void write(DataOutputStream dos) throws IOException {
         dos.writeByte(this.type.ordinal());
-        dos.writeInt(this.value);
+        Compiler.writeIntLittleEndian(dos, this.value);
     }
     
+    @Override
+    public void print(){
+        System.out.println("PUSH, " + value);
+    }
 }

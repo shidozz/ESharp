@@ -12,10 +12,12 @@ fr/shidozz/esharp/ModuleHeader$emod_arch.class
 fr/shidozz/esharp/FuncCallBC.class
 fr/shidozz/esharp/DeclarVarBC.class
 fr/shidozz/esharp/Node/EVisitor.class
+fr/shidozz/esharp/HaltBC.class
 fr/shidozz/esharp/Token.class
 fr/shidozz/esharp/Compiler.class
 fr/shidozz/esharp/SubBC.class
 fr/shidozz/esharp/ModuleHeader$emod_type.class
+fr/shidozz/esharp/LoadVarBC.class
 fr/shidozz/esharp/ModuleHeader$Header.class
 fr/shidozz/esharp/Node/NodeLiteral.class
 fr/shidozz/esharp/Node/NodeBlock.class
@@ -29,7 +31,9 @@ fr/shidozz/esharp/ReturnBC.class
 fr/shidozz/esharp/Node/NodeVariableDeclaration.class
 fr/shidozz/esharp/Esharp.class
 fr/shidozz/esharp/Node/Visitor.class
+fr/shidozz/esharp/ParamBC.class
 fr/shidozz/esharp/Node/NodeFunctionCall.class
 fr/shidozz/esharp/Parser$1.class
 fr/shidozz/esharp/Lexer.class
+fr/shidozz/esharp/DeclarFuncBC.class
 fr/shidozz/esharp/Bytecode.class

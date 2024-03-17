@@ -8,17 +8,22 @@ import java.io.IOException;
  * @author shidozz
  */
 public class DeclarVarBC extends Bytecode { 
-    private String name;
+    private int varId;
     
-    public DeclarVarBC(String name) {
+    public DeclarVarBC(int varId) {
         super(BytecodeType.DECLARE_VAR);
-        this.name = name;
+        this.varId = varId;
     }
 
     @Override
     public void write(DataOutputStream dos) throws IOException {
         dos.writeByte(this.type.ordinal());
-        dos.writeBytes(name);
+        Compiler.writeIntLittleEndian(dos, varId);
+    }
+    
+    @Override
+    public void print(){
+        System.out.println("DECLARE_VAR, " + varId);
     }
     
 }
